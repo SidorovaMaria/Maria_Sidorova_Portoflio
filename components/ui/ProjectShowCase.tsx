@@ -1,0 +1,52 @@
+import Image from "next/image";
+import React from "react";
+type ProjectShowCaseProps = {
+  desktop?: {
+    src: string;
+    size?: number;
+  };
+  tablet?: {
+    src: string;
+    size?: number;
+  };
+  mobile?: {
+    src: string;
+    size?: number;
+  };
+};
+
+const ProjectShowCase = ({ desktop, tablet, mobile }: ProjectShowCaseProps) => {
+  return (
+    <div className="relative w-full">
+      {desktop && desktop.src && (
+        <Image
+          src={desktop.src}
+          alt="Project Desktop"
+          width={desktop?.size}
+          height={desktop?.size}
+          className="z-40 h-auto object-cover rounded-b-lg desktop-image"
+        />
+      )}
+      {tablet && tablet.src && (
+        <Image
+          src={tablet.src}
+          alt="Project Tablet"
+          width={tablet.size}
+          height={tablet.size}
+          className="z-30 h-auto object-cover rounded-b-lg absolute bottom-0 right-2 tablet-image"
+        />
+      )}
+      {mobile && mobile.src && (
+        <Image
+          src={mobile.src}
+          alt="Project Mobile"
+          width={mobile.size}
+          height={mobile.size}
+          className="z-50 h-auto object-cover rounded-b-lg absolute left-4/7 bottom-0 mobile-image"
+        />
+      )}
+    </div>
+  );
+};
+
+export default ProjectShowCase;
