@@ -1,5 +1,6 @@
 "use client";
 import ContactForm from "@/components/contact/ContactForm";
+import DownloadCVBtn from "@/components/ui/DownloadCVBtn";
 import Links from "@/components/ui/Links";
 import SplitTextEffect from "@/components/ui/SplitTextEffect";
 import { useGSAP } from "@gsap/react";
@@ -16,7 +17,7 @@ const ContactPage = () => {
       setTl(master);
       const links = gsap.utils.toArray(".contact-link");
       master.fromTo(
-        ".get-in-touch",
+        ".download-cv-btn",
         { xPercent: -20, opacity: 0 },
         {
           xPercent: 0,
@@ -86,12 +87,8 @@ const ContactPage = () => {
     <section className="py-10 px-4 " ref={container}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
-          <div className="inline-block get-in-touch mb-4">
-            <div className="flex items-center gap-2 ">
-              <Mail size={24} className="text-primary" />
-              <span className="text-sm font-medium tracking-wider uppercase">Get In Touch</span>
-            </div>
-          </div>
+          <DownloadCVBtn />
+
           <SplitTextEffect
             timeline={tl!}
             text="Lets Work Together"
@@ -114,7 +111,6 @@ const ContactPage = () => {
             <Links />
           </div>
         </div>
-
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8 why-blocks">
             <div className="rounded-2xl p-6 bg-gradient-to-b from-bg/30 to-primary/30 backdrop-blur-md">
