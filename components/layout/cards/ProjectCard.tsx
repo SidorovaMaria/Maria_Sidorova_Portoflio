@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import TechTag from "./TechTag";
+import useDevice from "@/hooks/useDevice";
 
 const ProjectCard = ({ project, htl }: { project: Project; htl: gsap.core.Tween | null }) => {
   const {
@@ -24,6 +25,7 @@ const ProjectCard = ({ project, htl }: { project: Project; htl: gsap.core.Tween 
     textDark,
     textLight,
   } = project;
+  const { isTablet, isMobile } = useDevice();
   const showCase = {
     desktop: {
       src: desktopImage || "",
@@ -187,7 +189,7 @@ const ProjectCard = ({ project, htl }: { project: Project; htl: gsap.core.Tween 
   );
 
   return (
-    <div ref={root} className="grid grid-cols-2 gap-y-4 items-center gap-x-8 ">
+    <div ref={root} className="grid grid-cols-2 gap-y-1  lg:gap-y-2 items-center gap-x-8 ">
       <div
         className={`col-span-2 grid grid-cols-[1fr_3fr] p-8 rounded-xl items-center bg-[var(--accent-color)] text-[var(--text-light)] dark:text-[var(--text-dark)]`}
         ref={introRef}
@@ -199,36 +201,37 @@ const ProjectCard = ({ project, htl }: { project: Project; htl: gsap.core.Tween 
           } as React.CSSProperties
         }
       >
-        <p className="text-[110px] leading-[110px] pr-5 index-number text-[var(--text-dark)]">
+        <p className="text-[60px]  md:text-[80px]lg:text-[110px] leading-none pr-5 index-number text-[var(--text-dark)]">
           {index}
         </p>
         <div className="flex flex-col info-text">
-          <h2 className="text-3xl tracking-wide text-[var(--text-dark)]">{title}</h2>
-          <ul className="flex flex-wrap gap-2 my-4 ">
+          <h2 className="max-sm:text-right text-xl lg:text-3xl tracking-wide text-[var(--text-dark)]">
+            {title}
+          </h2>
+          <ul className="hidden md:flex flex-wrap gap-2 my-4 ">
             {techStack.map((tech) => (
               <TechTag key={tech} title={tech} />
             ))}
           </ul>
         </div>
       </div>
-      <ProjectShowCase
-        desktop={showCase.desktop}
-        tablet={showCase.tablet}
-        mobile={showCase.mobile}
-      />
+      <div className="max-lg:col-span-2 md:scale-80 mx-auto lg:scale-100 ">
+        <ProjectShowCase
+          onlyDesktop={isTablet || isMobile}
+          desktop={showCase.desktop}
+          tablet={showCase.tablet}
+          mobile={showCase.mobile}
+        />
+      </div>
 
       <div
         style={{ backgroundColor: accent + "40" }}
-        className="w-full flex flex-col rounded-xl p-6 description-text "
+        className="w-full flex flex-col rounded-xl p-6 description-text max-lg:col-span-2 "
       >
         <p className="tracking-wider mix-blend-difference">{description}</p>
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-center gap-10">
           <ProjectLinkBtn link={liveLink} text="Live" icon={<span>👀</span>} />
           <ProjectLinkBtn link={githubLink} text="GitHub" icon={<Github />} />
-          <button className="flex items-center">
-            <div className="size-4 rounded-full bg-primary"></div>
-            <p className="ml-2">Case Study</p>
-          </button>
         </div>
       </div>
     </div>

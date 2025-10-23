@@ -32,9 +32,10 @@ const ProfileCard = ({ timeline }: ProfileCardProps) => {
       const cardTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".profile-card-container",
-          start: "top center",
-          end: "80% 60%",
+          start: "top 60%",
+          end: "bottom 60%",
           scrub: true,
+          // markers: true,
         },
       });
       gsap.fromTo(
@@ -74,12 +75,12 @@ const ProfileCard = ({ timeline }: ProfileCardProps) => {
 
   return (
     <section ref={root} className="mt-24 w-full  z-0">
-      <div className="profile-card-container max-w-[1000px] mx-auto relative">
-        <div className="h-[450px] w-[1000px] bg-transparent"></div>
-        <p className="profile-title absolute bottom-4 left-4 max-w-md capitalize text-5xl font-clash text-bg dark:text-fg">
+      <div className="profile-card-container h-[150px] w-[350px] md:h-[315px] md:w-[700px] lg:h-[450px] lg:w-[1000px]   mx-auto relative">
+        <div className="h-[150px] w-[350px] md:h-[315px] md:w-[700px] lg:h-[450px] lg:w-[1000px] mx-auto "></div>
+        <p className="profile-title absolute bottom-4 left-4  max-w-[150px] md:max-w-sm capitalize text-base  md:text-4xl font-clash text-bg dark:text-fg">
           Translating imagination into scalable systems
         </p>
-        <p className="profile-description absolute bottom-4 text-right right-4 max-w-md  text-base leading-snug font-clash text-bg dark:text-fg">
+        <p className=" hidden md:block profile-description absolute bottom-4 text-right right-4 max-w-md md:text-sm md:max-w-[300px] text-base leading-snug font-clash text-bg dark:text-fg">
           Genuine love for clean, well-structured code, intuitive design, and meaningful
           collaboration. I care deeply about building software that not only functions flawlessly
           but also feels effortless to use.

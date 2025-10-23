@@ -33,8 +33,8 @@ export const connectLinksProfile = [
   { label: "Get in Touch", href: "/contact" },
 ];
 export const connectSocialLinks = [
-  { label: "GitHub", href: "", icon: Github },
-  { label: "LinkedIn", href: "", icon: Linkedin },
-  { label: "Facebook", href: "", icon: Facebook },
-  { label: "Instagram", href: "", icon: Instagram },
+  { label: "GitHub", href: "https://github.com/SidorovaMaria", icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/maria-sidorova-dev", icon: Linkedin },
+  { label: "Facebook", href: "https://www.facebook.com/maria.sidorova.16144/", icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/maria_sidorova_", icon: Instagram },
 ];

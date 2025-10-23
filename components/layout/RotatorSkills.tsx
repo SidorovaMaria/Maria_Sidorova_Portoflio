@@ -35,28 +35,28 @@ const RotatorSkills = () => {
     ScrollTrigger.create({
       trigger: ".skills-section",
       start: "top center",
-      endTrigger: ".rotator li:last-of-type",
-      end: "bottom center",
+      endTrigger: ".rotator li:nth-of-type(4)",
+      end: "top center",
       animation: gsap.to(morphRef.current, {
         display: "block",
         opacity: 0.6,
         scale: 1,
         yPercent: -10,
         ease: "power2.out",
-        duration: 1,
+        duration: 0.2,
       }),
       scrub: true,
     });
   });
 
   return (
-    <div className="flex justify-end skills-section  mx-4 md:mx-8 lg:mx-16 relative ">
-      <h1 className="skills-title text-4xl shrink-0 font-bold tracking-wide  text-right leading-relaxed">
-        I build web experiences that are
+    <div className="flex justify-center skills-section relative  ">
+      <h1 className="skills-title text-[11px] md:text-base lg:text-2xl shrink-0 font-bold tracking-wide text-right leading-relaxed lowercase">
+        <span className="hidden md:inline">I build</span> Web experiences that are
       </h1>
       <ul className="rotator  ">
         <li>
-          <span>fast and accessible.</span>
+          <span>crafted with care and precision.</span>
         </li>
         <li>
           <span>pixel-perfect and reliable.</span>
@@ -65,7 +65,7 @@ const RotatorSkills = () => {
           <span>human-centered and intuitive.</span>
         </li>
         <li>
-          <span>crafted with care and precision.</span>
+          <span>fast and accessible.</span>
         </li>
         <li>
           <span>alive with subtle motion.</span>
@@ -77,7 +77,7 @@ const RotatorSkills = () => {
           <span>shaped by logic and empathy.</span>
         </li>
       </ul>
-      <div className="w-1/2  left-[20%] top-0 hidden  opacity-50 absolute" ref={morphRef}>
+      <div className="w-1/2 left-[20%] top-0 hidden  opacity-50 absolute" ref={morphRef}>
         <MorphDesign />
       </div>
     </div>

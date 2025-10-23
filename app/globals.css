@@ -25,6 +25,7 @@
   --color-secondary: #67422f;
 }
 @theme inline {
+  --breakpoint-xs: 400px;
   --color-bg: var(--color-bg);
   --color-fg: var(--color-fg);
   --color-primary: var(--color-primary);
@@ -62,7 +63,7 @@ body {
     @apply text-fg mr-5;
   }
   .rotator li {
-    @apply scroll-snap-align pl-4 text-4xl font-bold tracking-wide whitespace-nowrap leading-relaxed text-primary;
+    @apply scroll-snap-align pl-1  md:pl-4 text-[11px] md:text-base xl:text-2xl font-bold tracking-wide whitespace-nowrap leading-relaxed text-primary;
     span {
       @apply inline-block;
     }
@@ -87,7 +88,7 @@ body {
     }
   }
   .text-overlayed {
-    @apply mix-blend-screen;
+    @apply mix-blend-screen dark:mix-blend-soft-light;
   }
   .error-message {
     @apply text-sm text-red-200 font-medium w-full tracking-wide pt-1;

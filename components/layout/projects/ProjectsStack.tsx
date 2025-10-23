@@ -125,7 +125,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               ))}
             </ul>
             {/* Github and Live */}
-            <div className="flex items-center min-w-[50%] mx-auto z-50 gap-4 mt-2 h-fit">
+            <div className="flex items-center mx-auto z-50 gap-4 mt-2 h-fit w-full">
               <Link
                 role="button"
                 href={liveLink}

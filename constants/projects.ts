@@ -44,9 +44,9 @@ export const budgetTracker: Project = {
 
 export const FigmaClone: Project = {
   index: "02",
-  title: "Canvo - Figma Clone",
+  title: "Canvo",
   description:
-    "A collaborative design tool inspired by Figma, built with Liveblocks for real-time multi-user editing and Fabric.js for advanced canvas rendering. Canvo enables users to create and manipulate shapes, text, and images, supporting selection, movement, resizing, deletion, and property editing. The project began as a JavaScript Mastery tutorial and was expanded with additional features and custom enhancements for a richer design experience.",
+    "A collaborative design tool inspired by Figma, built with Liveblocks for real-time multi-user editing and Fabric.js for advanced canvas rendering. Canvo enables users to create and manipulate shapes, text, and images, supporting selection, movement, resizing, deletion, and property editing. ",
   smallIntro: "A collaborative design tool inspired by Figma, built with Liveblocks and Fabric.js.",
   techStack: [
     "React 19",

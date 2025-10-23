@@ -102,7 +102,7 @@ const CornerLinks = ({ connectLinks }: ConnectSectionProps) => {
           <Link
             key={i}
             href={item.href}
-            className="group relative text-lg tracking-wider font-medium menu-item"
+            className="group relative text-lg tracking-wider font-medium menu-item text-center md:text-left"
           >
             {item.icon && item.icon && (
               <item.icon className="inline-block mr-2 mb-1 align-middle" size={20} />

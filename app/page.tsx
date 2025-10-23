@@ -10,38 +10,43 @@ import TechStackBanner from "@/components/TechStackBanner";
 
 import SplitTextEffect from "@/components/ui/SplitTextEffect";
 import { connectLinksProfile, connectSocialLinks } from "@/constants";
+import useDevice from "@/hooks/useDevice";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Image from "next/image";
 import React from "react";
+import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function Home() {
   const [tl, setTl] = React.useState<gsap.core.Timeline | null>(null);
   const root = React.useRef<HTMLElement | null>(null);
   const overlayRef = React.useRef<HTMLDivElement | null>(null);
+  const { isDesktop, isTablet } = useDevice();
   useGSAP(() => {
     const master = gsap.timeline({ defaults: { ease: "sine.out" } });
     master.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5 }, 0);
     setTl(master);
+
+    // adapt values once based on current window width
     gsap.to(overlayRef.current, {
-      y: "710px",
-      width: 1000,
-      borderRadius: "1.5rem",
-      height: "450px",
+      y: isDesktop ? "740px" : isTablet ? "770px" : "980px",
+      width: isDesktop ? 1000 : isTablet ? "700px" : "350px",
+      borderRadius: isDesktop ? "1.5rem" : isTablet ? "1.25rem" : "1rem",
+      height: isDesktop ? "450px" : isTablet ? "315px" : "150px",
       filter: "blur(0px)",
       scrollTrigger: {
-        trigger: root.current, // Target the overlay element
-        start: "-100 top", // Trigger when the top of the overlay hits the top of the viewport
-        markers: false,
+        trigger: root.current,
+        start: "-100 top",
+        // markers: true,
         endTrigger: ".profile-card-container",
-        end: "top 30%", // End when the bottom of the
-        scrub: 0.1, // Enable smooth scrolling for the animation
+        end: "top center",
+        scrub: 0.1,
       },
     });
-    //Featured only when in view
+
     const featuredSplit = SplitText.create(".featured", { type: "chars" });
     const featuredTl = gsap.timeline({
       scrollTrigger: {
@@ -140,7 +145,7 @@ export default function Home() {
     <section ref={root} className="home-page relative ">
       <div
         ref={overlayRef}
-        className="overlay absolute left-1/2 -translate-x-1/2 w-[300px] h-[300px] blur-md -z-10 -top-10"
+        className="overlay absolute left-1/2 -translate-x-1/2 w-[300px] h-[300px] blur-md -z-10 -top-10 bg-red-400"
       >
         <Image
           src="/images/me.jpg"
@@ -154,27 +159,29 @@ export default function Home() {
         timeline={tl!}
         text="Focused. Driven."
         type="chars"
-        className="title text-center text-[80px] mt-12 max-w-3xl mx-auto leading-slug cursor-default text-overlayed"
+        className="title text-center max-sm:text-[64px] text-[80px]  mt-12 max-w-3xl mx-auto  cursor-default max-sm:leading-tight text-overlayed px-8"
         position={"0"}
       />
       <SplitTextEffect
         timeline={tl!}
         text="Constantly learning."
         type="chars"
-        className="title leading-[80px] text-center text-[80px] max-w-3xl mx-auto cursor-default text-overlayed"
+        className="title  text-center text-[60px] md:text-[72px] max-w-3xl mx-auto cursor-default text-overlayed max-sm:leading-tight px-8"
         position=">"
       />
       <SplitTextEffect
         timeline={tl!}
-        type="lines"
-        className="mt-18 text-center text-lg max-w-4xl mx-auto text-muted-foreground px-4 cursor-default leading-relaxed tracking-wide text-overlayed"
+        type="words"
+        className="max-w-xs md:max-w-xl lg:max-w-4xl mt-16 text-center text-sm md:text-base lg:text-lg  mx-auto text-muted-foreground px-4 cursor-default leading-relaxed tracking-wide text-overlayed"
         position=">"
         duration={1.5}
         ease="power2.out"
         text="Maria Sidorova — a dedicated software engineer with a strong foundation in front-end development (React/Next.js, TypeScript) and a constant drive to learn, adapt, and evolve. I build reliable, accessible interfaces that load fast, read clearly, and scale well, pairing modern patterns with disciplined testing and version control. My approach blends data-informed decisions with empathy for users and teammates, keeping designs simple and codebases maintainable. I thrive in collaborative, feedback-rich teams and enjoy shipping features end-to-end—from UI to API integration."
       />
       <TechStackBanner />
+
       <ProfileCard timeline={tl!} />
+
       <SplitTextEffect
         type="words"
         duration={0.6}
@@ -182,6 +189,7 @@ export default function Home() {
         className="featured text-center text-6xl tracking-wide mt-12 -mb-12 max-w-3xl mx-auto leading-slug cursor-default"
         text="Featured Projects"
       />
+
       <HorizontalFeatured />
       <RotatorSkills />
 

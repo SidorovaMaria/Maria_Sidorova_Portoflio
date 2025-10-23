@@ -13,9 +13,10 @@ type ProjectShowCaseProps = {
     src: string;
     size?: number;
   };
+  onlyDesktop?: boolean;
 };
 
-const ProjectShowCase = ({ desktop, tablet, mobile }: ProjectShowCaseProps) => {
+const ProjectShowCase = ({ desktop, tablet, mobile, onlyDesktop }: ProjectShowCaseProps) => {
   return (
     <div className="relative w-full">
       {desktop && desktop.src && (
@@ -27,7 +28,7 @@ const ProjectShowCase = ({ desktop, tablet, mobile }: ProjectShowCaseProps) => {
           className="z-40 h-auto object-cover rounded-b-lg desktop-image"
         />
       )}
-      {tablet && tablet.src && (
+      {tablet && tablet.src && !onlyDesktop && (
         <Image
           src={tablet.src}
           alt="Project Tablet"
@@ -36,7 +37,7 @@ const ProjectShowCase = ({ desktop, tablet, mobile }: ProjectShowCaseProps) => {
           className="z-30 h-auto object-cover rounded-b-lg absolute bottom-0 right-2 tablet-image"
         />
       )}
-      {mobile && mobile.src && (
+      {mobile && mobile.src && !onlyDesktop && (
         <Image
           src={mobile.src}
           alt="Project Mobile"

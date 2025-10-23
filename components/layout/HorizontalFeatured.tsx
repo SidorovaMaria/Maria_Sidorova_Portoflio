@@ -18,8 +18,9 @@ const HorizontalFeatured = () => {
     const row = rowRef.current;
     const section = sectionRef.current;
     if (!row || !section) return;
+    const paddingCompensation = window.innerWidth * 0.125; // adjust based on padding/gap
 
-    const fullWidth = row.scrollWidth + 128; // padding/gap compensation
+    const fullWidth = row.scrollWidth + paddingCompensation; // padding/gap compensation
     const distance = fullWidth - window.innerWidth;
 
     // Horizontal scroll animation
@@ -56,11 +57,11 @@ const HorizontalFeatured = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen overflow-hidden max-lg:mt-22">
       <div
         ref={rowRef}
         id="#hf-cards"
-        className="flex h-full items-center gap-24 px-32 will-change-transform"
+        className="flex h-full items-center will-change-transform px-[12.5vw] gap-[12.5vw]"
       >
         {featuredProjects.map((project) => (
           <div key={project.index} className={`flex-shrink-0 w-[75vw] project-${project.index}`}>

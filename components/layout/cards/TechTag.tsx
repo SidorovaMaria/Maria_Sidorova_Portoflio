@@ -46,7 +46,7 @@ const TechTag = ({ title, className }: ProjectMagneticLinkProps) => {
   return (
     <li
       ref={tagRef}
-      className={`cursor-default text-sm border border-current rounded-xl px-4 py-1 transition text-[var(--text-dark)] ${className}`}
+      className={`cursor-default text-xs lg:text-sm border border-current rounded-xl px-4 py-1 transition text-[var(--text-dark)] ${className}`}
     >
       <span className="font-medium">{title}</span>
     </li>
