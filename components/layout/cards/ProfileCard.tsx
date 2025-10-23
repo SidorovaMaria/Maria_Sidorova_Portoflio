@@ -75,7 +75,7 @@ const ProfileCard = ({ timeline }: ProfileCardProps) => {
 
   return (
     <section ref={root} className="mt-24 w-full  z-0">
-      <div className="profile-card-container h-[150px] w-[350px] md:h-[315px] md:w-[700px] lg:h-[450px] lg:w-[1000px]   mx-auto relative">
+      <div className="profile-card-container h-[150px] w-[350px] md:h-[315px] md:w-[700px] lg:h-[450px] lg:w-[1000px]  mx-auto relative">
         <div className="h-[150px] w-[350px] md:h-[315px] md:w-[700px] lg:h-[450px] lg:w-[1000px] mx-auto "></div>
         <p className="profile-title absolute bottom-4 left-4  max-w-[150px] md:max-w-sm capitalize text-base  md:text-4xl font-clash text-bg dark:text-fg">
           Translating imagination into scalable systems

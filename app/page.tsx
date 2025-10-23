@@ -145,7 +145,7 @@ export default function Home() {
     <section ref={root} className="home-page relative ">
       <div
         ref={overlayRef}
-        className="overlay absolute left-1/2 -translate-x-1/2 w-[300px] h-[300px] blur-md -z-10 -top-10 bg-red-400"
+        className="overlay absolute left-1/2 -translate-x-1/2 w-[300px] h-[300px] blur-md -z-10 -top-10 bg-transparent"
       >
         <Image
           src="/images/me.jpg"

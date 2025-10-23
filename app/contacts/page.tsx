@@ -159,7 +159,7 @@ export const WhyMeBlock = ({
 }) => {
   return (
     <div className="flex gap-4 items-center ">
-      <div className="w-14 h-14 flex items-center justify-center bg-primary  rounded-lg flex-shrink-0 text-fg relative z-50">
+      <div className="w-14 h-14 flex items-center justify-center bg-primary  rounded-lg flex-shrink-0 text-bg dark:text-fg relative z-50">
         {icon}
       </div>
       <div className="why-me-block ">
