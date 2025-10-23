@@ -1,5 +1,4 @@
 "use client";
-import { useGSAP } from "@gsap/react";
 import { Github, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";

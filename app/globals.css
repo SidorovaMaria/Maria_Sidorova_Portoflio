@@ -87,7 +87,7 @@ body {
     }
   }
   .text-overlayed {
-    @apply mix-blend-screen dark:mix-blend-soft-light;
+    @apply mix-blend-screen;
   }
   .error-message {
     @apply text-sm text-red-200 font-medium w-full tracking-wide pt-1;

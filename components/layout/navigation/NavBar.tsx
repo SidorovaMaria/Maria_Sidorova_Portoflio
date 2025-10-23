@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import NavBarMobile from "./NavBarMobile";
 gsap.registerPlugin(ScrollTrigger);
 const NavBar = () => {
   const navRef = useRef<HTMLElement | null>(null);
@@ -49,14 +51,14 @@ const NavBar = () => {
   return (
     <header
       ref={navRef}
-      className="flex items-center w-full justify-between px-6 py-4 border-b border-fg/50 sticky top-0 z-50"
+      className="flex items-center w-full justify-between px-3 md:px-6 py-4 border-b border-fg/50 sticky top-0 z-50"
     >
       <h1 className="text-xl">
         <Link href="/" className="lowercase">
           Maria Sidorova
         </Link>
       </h1>
-      <nav>
+      <nav className="hidden md:flex">
         <ul className="flex items-center gap-10 relative">
           {NAVLINKS.map((link) => (
             <Link key={link.key} href={link.href} passHref>
@@ -65,7 +67,10 @@ const NavBar = () => {
           ))}
         </ul>
       </nav>
-      <ThemeToggle />
+      <div className="hidden md:flex  ">
+        <ThemeToggle />
+      </div>
+      <NavBarMobile />
     </header>
   );
 };
