@@ -1,11 +1,10 @@
 "use client";
 
-import SplitTextEffect from "@/components/ui/SplitTextEffect";
 import { useGSAP } from "@gsap/react";
-import { time } from "console";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
+
 import React from "react";
 
 gsap.registerPlugin(ScrollTrigger);

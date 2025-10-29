@@ -7,8 +7,9 @@ import gsap from "gsap";
 import React from "react";
 import TechTag from "../cards/TechTag";
 import Link from "next/link";
-import { ArrowBigDown, Eye, Github } from "lucide-react";
+import { Eye, Github } from "lucide-react";
 import { AllProjects, Project } from "@/constants/projects";
+import useDevice from "@/hooks/useDevice";
 
 const ProjectsStack = () => {
   useGSAP(() => {
@@ -67,18 +68,19 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     textDark,
     textLight,
   } = project;
+  const { isDesktop } = useDevice();
   const showCase = {
     desktop: {
       src: desktopImage || "",
-      size: 500,
+      size: isDesktop ? 550 : 450,
     },
     tablet: {
       src: tabletImage || "",
-      size: 180,
+      size: isDesktop ? 180 : 160,
     },
     mobile: {
       src: mobileImage || "",
-      size: 100,
+      size: isDesktop ? 100 : 90,
     },
   };
   return (
@@ -99,7 +101,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         <span className="absolute top-4 right-6 text-4xl font-bold text-[var(--accent-color)] brightness-150">{`<${index}>`}</span>
 
         {/* Content */}
-        <div className="card-inner relative w-full h-fit grid grid-cols-[2fr_3fr] gap-x-4 items-center">
+        <div className="card-inner relative w-full h-fit grid grid-cols-[2fr_3fr] gap-x-4 items-center max-md:grid-cols-1">
           {/* Image */}
           <div className="flex items-center justify-center">
             <ProjectShowCase
@@ -147,10 +149,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <p>GitHub Repo</p>
               </Link>
             </div>
-            {/* <button className="mx-auto w-fit flex flex-col items-center uppercase text-[var(--text-light)] dark:text-[var(--text-dark)] hover:text-[var(--accent-color)] hover:dark:text-[var(--accent-color)] transition duration-300 cursor-pointer hover:scale-105 group">
-              <span className="font-bold ">Case Study</span>
-              <ArrowBigDown className="mt-1 group-hover:fill-[var(--accent-color)]" size={32} />
-            </button> */}
           </div>
         </div>
       </div>

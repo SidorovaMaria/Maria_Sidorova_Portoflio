@@ -4,8 +4,6 @@ import { Project } from "@/constants/projects";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Github } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import TechTag from "./TechTag";
 import useDevice from "@/hooks/useDevice";
@@ -40,7 +38,6 @@ const ProjectCard = ({ project, htl }: { project: Project; htl: gsap.core.Tween 
       size: 130,
     },
   };
-
   const root = React.useRef<HTMLDivElement | null>(null);
   const introRef = React.useRef<HTMLDivElement | null>(null);
 

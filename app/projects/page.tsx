@@ -1,5 +1,5 @@
+import Footer from "@/components/layout/Footer";
 import ProjectsStack from "@/components/layout/projects/ProjectsStack";
-import { Link2 } from "lucide-react";
 import React from "react";
 
 const page = () => {
@@ -13,7 +13,7 @@ const page = () => {
         </div>
       </section>
       <ProjectsStack />
-      <div className="spacer" style={{ height: "100vh" }}></div>
+      <Footer />
     </>
   );
 };

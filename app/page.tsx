@@ -1,7 +1,8 @@
 "use client";
 
 import ProfileCard from "@/components/layout/cards/ProfileCard";
-import CornerLinks from "@/components/layout/CornerLinks";
+
+import Footer from "@/components/layout/Footer";
 
 import HorizontalFeatured from "@/components/layout/HorizontalFeatured";
 
@@ -9,7 +10,7 @@ import RotatorSkills from "@/components/layout/RotatorSkills";
 import TechStackBanner from "@/components/TechStackBanner";
 
 import SplitTextEffect from "@/components/ui/SplitTextEffect";
-import { connectLinksProfile, connectSocialLinks } from "@/constants";
+
 import useDevice from "@/hooks/useDevice";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -17,7 +18,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Image from "next/image";
 import React from "react";
-import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function Home() {
@@ -152,6 +152,7 @@ export default function Home() {
           alt="Maria Sidorova"
           width={300}
           height={300}
+          priority
           className="w-full h-full object-cover object-[0%_80%] rounded-2xl"
         />
       </div>
@@ -193,28 +194,7 @@ export default function Home() {
       <HorizontalFeatured />
       <RotatorSkills />
 
-      <div className=" py-12 bg-gradient-to-br from-primary/50 via-transparent to-primary/50 rounded-t-3xl mt-24 connect-profile-section">
-        <SplitTextEffect
-          type="words"
-          duration={0.6}
-          ease="power2.out"
-          className="get-to-know text-center text-4xl tracking-wide my-12  max-w-3xl mx-auto leading-slug cursor-default"
-          text="Open to graduate/junior SWE roles"
-        />
-        <section className="my-4 connect-links">
-          <CornerLinks connectLinks={connectLinksProfile} />
-        </section>
-        <SplitTextEffect
-          type="words"
-          duration={0.6}
-          ease="power2.out"
-          className="get-to-social text-center text-4xl tracking-wide my-12  max-w-3xl mx-auto leading-slug cursor-default"
-          text="Or connect professionally"
-        />
-        <section className="my-4 social-links">
-          <CornerLinks connectLinks={connectSocialLinks} />
-        </section>
-      </div>
+      <Footer />
     </section>
   );
 }

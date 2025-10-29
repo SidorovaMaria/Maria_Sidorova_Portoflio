@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "./cards/ProjectCard";
-import { budgetTracker, featuredProjects, FigmaClone, Kanban } from "@/constants/projects";
+import { featuredProjects } from "@/constants/projects";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);

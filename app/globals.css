@@ -1,14 +1,14 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 /* Font Family */
-@font-face {
+/* @font-face {
   font-family: "ClashDisplay";
   src: url("/fonts/clash-display/ClashDisplay-Variable.woff2") format("woff2"),
     url("/fonts/clash-display/ClashDisplay-Variable.woff") format("woff");
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 /* Light Theme */
 :root {
   --color-bg: #e2e2e2;
@@ -31,8 +31,7 @@
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-muted: var(--color-muted);
-  --font-clash: "ClashDisplay", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
-    sans-serif;
+  --font-clash: var(--clash-display), sans-serif;
   --font-inter: var(--inter);
 }
 body {

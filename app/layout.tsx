@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+const clashDisplay = localFont({
+  src: "./ClashDisplay-Variable.woff2",
+  variable: "--clash-display",
+});
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import NavBar from "@/components/layout/navigation/NavBar";
@@ -38,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${clashDisplay.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

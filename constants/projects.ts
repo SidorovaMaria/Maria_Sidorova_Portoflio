@@ -1,4 +1,3 @@
-import { techStack } from ".";
 export interface Project {
   index: string;
   title: string;
@@ -15,7 +14,7 @@ export interface Project {
   textLight?: string;
 }
 export const budgetTracker: Project = {
-  index: "01",
+  index: "02",
   title: "Budget Tracker",
   description:
     "A user-friendly app for managing personal finances. Track income and expenses, categorize transactions, and view insightful summaries to monitor financial health. Secure authentication and responsive design ensure a seamless experience across devices.",
@@ -43,7 +42,7 @@ export const budgetTracker: Project = {
 };
 
 export const FigmaClone: Project = {
-  index: "02",
+  index: "03",
   title: "Canvo",
   description:
     "A collaborative design tool inspired by Figma, built with Liveblocks for real-time multi-user editing and Fabric.js for advanced canvas rendering. Canvo enables users to create and manipulate shapes, text, and images, supporting selection, movement, resizing, deletion, and property editing. ",
@@ -71,7 +70,7 @@ export const FigmaClone: Project = {
 };
 
 export const Kanban: Project = {
-  index: "03",
+  index: "04",
   title: "Kanban Board",
   description:
     "A dynamic Kanban board application for task management, featuring drag-and-drop functionality for seamless task organization across customizable columns. Built with React and TypeScript, it offers a responsive design, local storage persistence, and an intuitive user interface for efficient workflow management.",
@@ -97,10 +96,9 @@ export const Kanban: Project = {
   textDark: "#CCCBB8",
   textLight: "#1E2727",
 };
-export const featuredProjects: Project[] = [budgetTracker, FigmaClone, Kanban];
 
 const Notes: Project = {
-  index: "04",
+  index: "05",
   title: "Notes App",
   description:
     "A sleek and intuitive notes application designed for seamless note-taking and organization. Featuring a clean interface, users can create, edit, and categorize notes with ease. The app supports markdown formatting, tag-based organization, and a powerful search function to quickly locate notes.",
@@ -128,7 +126,7 @@ const Notes: Project = {
   textLight: "#1E2727",
 };
 const SonarStrike: Project = {
-  index: "05",
+  index: "06",
   title: "Sonar Strike",
   description:
     "Sonar Strike is a fast-paced 2D BattleShip game where players engage in strategic naval combat, deploying ships and using sonar to locate and destroy enemy vessels.",
@@ -141,5 +139,44 @@ const SonarStrike: Project = {
   textDark: "#CCCBB8",
   textLight: "#1E2727",
 };
+const BookmarkManager: Project = {
+  index: "01",
+  title: "Bookmark Manager",
+  description:
+    "A sleek and efficient Bookmark Manager that allows users to save, organize, and manage their favorite web links with ease. Featuring a clean interface, users can categorize bookmarks into folders, add tags for easy searching, and quickly access their saved sites.",
+  smallIntro:
+    "A sleek and efficient Bookmark Manager for saving, organizing, and managing web links.",
+  techStack: [
+    "React 19",
+    "Next.js 16",
+    "TypeScript",
+    "Tailwind CSS",
+    "Zod",
+    "Radix UI",
+    "React Hook Form",
+    "Next Themes",
+    "MongoDB with Mongoose",
+    "Redis",
+    "Vitest",
+    "Vercel",
+    "GitHub",
+  ],
+  desktopImage: "/images/projects/bookmark-manager/Desktop.svg",
+  mobileImage: "/images/projects/bookmark-manager/Mobile.svg",
+  tabletImage: "/images/projects/bookmark-manager/Tablet.svg",
+  githubLink: "https://github.com/SidorovaMaria/bookmark-manager",
+  liveLink: "https://bookmark-manager-gamma-nine.vercel.app/",
+  accent: "#55662F",
+  textDark: "#CCCBB8",
+  textLight: "#1E2727",
+};
+export const featuredProjects: Project[] = [BookmarkManager, budgetTracker, FigmaClone];
 
-export const AllProjects: Project[] = [budgetTracker, FigmaClone, Kanban, Notes, SonarStrike];
+export const AllProjects: Project[] = [
+  BookmarkManager,
+  budgetTracker,
+  FigmaClone,
+  Kanban,
+  Notes,
+  SonarStrike,
+];

@@ -25,7 +25,7 @@ const ProjectShowCase = ({ desktop, tablet, mobile, onlyDesktop }: ProjectShowCa
           alt="Project Desktop"
           width={desktop?.size}
           height={desktop?.size}
-          className="z-40 h-auto object-cover rounded-b-lg desktop-image"
+          className="z-40  object-cover rounded-b-lg desktop-image"
         />
       )}
       {tablet && tablet.src && !onlyDesktop && (
@@ -34,7 +34,7 @@ const ProjectShowCase = ({ desktop, tablet, mobile, onlyDesktop }: ProjectShowCa
           alt="Project Tablet"
           width={tablet.size}
           height={tablet.size}
-          className="z-30 h-auto object-cover rounded-b-lg absolute bottom-0 right-2 tablet-image"
+          className="z-30  object-cover rounded-b-lg absolute bottom-0 right-2 tablet-image"
         />
       )}
       {mobile && mobile.src && !onlyDesktop && (
@@ -43,7 +43,7 @@ const ProjectShowCase = ({ desktop, tablet, mobile, onlyDesktop }: ProjectShowCa
           alt="Project Mobile"
           width={mobile.size}
           height={mobile.size}
-          className="z-50 h-auto object-cover rounded-b-lg absolute left-4/7 bottom-0 mobile-image"
+          className="z-50 object-cover rounded-b-lg absolute left-4/7 bottom-0 mobile-image"
         />
       )}
     </div>
